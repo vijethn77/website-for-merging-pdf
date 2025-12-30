@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Merger - Combine Your PDFs Easily</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo-wrapper">
+                    <span class="logo-icon">📋</span>
+                    <h1>PDF Merger Pro</h1>
+                </div>
+                <p>✨ Combine your PDFs with ease and style</p>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Upload Section -->
+            <section class="upload-section" id="uploadSection">
+                <div class="upload-area" id="uploadArea">
+                    <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="17 8 12 3 7 8"></polyline>
+                        <line x1="12" y1="3" x2="12" y2="15"></line>
+                    </svg>
+                    <h2>Drop PDF file here</h2>
+                    <p>or click to browse</p>
+                    <input type="file" id="fileInput" accept=".pdf" hidden>
+                </div>
+                <input type="file" id="hiddenFileInput" accept=".pdf" hidden>
+            </section>
+
+            <!-- Files List Section -->
+            <section class="files-section" id="filesSection" style="display: none;">
+                <div class="section-header">
+                    <h2>📋 Selected Files</h2>
+                    <span class="file-count" id="fileCount">0 files</span>
+                </div>
+                
+                <div class="files-list" id="filesList">
+                    <!-- Files will be added here -->
+                </div>
+
+                <!-- Add More PDFs Button -->
+                <div class="add-more-section">
+                    <button id="addMoreBtn" class="btn btn-add-more">
+                        <span class="btn-icon">➕</span> Add Another PDF
+                    </button>
+                    <p class="add-hint" id="addHint">Add at least 2 PDFs to merge</p>
+                </div>
+
+                <!-- Output Name Section -->
+                <div class="output-section">
+                    <label for="outputName">Output Filename:</label>
+                    <div class="output-input-group">
+                        <input type="text" id="outputName" placeholder="merged" value="merged">
+                        <span class="pdf-extension">.pdf</span>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="button-group">
+                    <button id="mergeBtn" class="btn btn-merge">
+                        <span class="btn-icon">⚡</span> Merge PDFs
+                    </button>
+                    <button id="clearBtn" class="btn btn-secondary">
+                        <span class="btn-icon">🔄</span> Clear All
+                    </button>
+                </div>
+            </section>
+
+            <!-- Result Section -->
+            <section class="result-section" id="resultSection" style="display: none;">
+                <div class="result-content">
+                    <div class="success-icon">✓</div>
+                    <h2 id="resultMessage">PDFs merged successfully!</h2>
+                    <p id="resultDetails"></p>
+                    <div class="download-group">
+                        <button id="downloadBtn" class="btn btn-success">
+                            <span class="btn-icon">⬇️</span> Download Merged PDF
+                        </button>
+                        <button id="newMergeBtn" class="btn btn-secondary">
+                            <span class="btn-icon">➕</span> Merge More PDFs
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Loading Spinner -->
+            <div class="loading" id="loading" style="display: none;">
+                <div class="spinner"></div>
+                <p>Merging your PDFs...</p>
+            </div>
+
+            <!-- Alert Messages -->
+            <div class="alert" id="alert" style="display: none;"></div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>💫 Made with ❤️ | Fastest PDF Merger Tool</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
